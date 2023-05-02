@@ -30,7 +30,7 @@
 "RejectIfSameFromAndTo"=dword:00000001
 "RejectTags"="Bulkmail;Mailing-List;X-List"
 "ReverseResolution"=dword:00000001
-"SmartHost"="turbo4.tri"
+"SmartHost"="server.name"
 "SmartHostPort"=dword:00000019
 "TrackingLogFile"="c:\\SpamFilter\\tracking.txt"
 "TurfDir"="c:\\SpamFilter\\TurfDir\\"
