@@ -1,0 +1,7 @@
+Received: from joe.net ([127.0.0.1]) by SpamHater; Wed, 26 Apr 2023 07:58:51 -0700
+subject: sample message
+from: joe@joe.net
+to: henry@net.joe
+
+This is the message body
+.

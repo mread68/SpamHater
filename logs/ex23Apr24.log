@@ -1,0 +1,30 @@
+2023-Apr-24 09:45:29 SMTP Proxy Creating 48 worker threads
+2023-Apr-24 09:45:29 SMTP Proxy Loading Local domain list
+2023-Apr-24 09:45:29 SMTP Proxy Loading Domain filter list
+2023-Apr-24 09:45:29 SMTP Proxy Loading Keyword filter list
+2023-Apr-24 09:45:29 SMTP Proxy Service is running
+2023-Apr-24 09:46:07 127.0.0.1 - STAT
+2023-Apr-24 09:46:07 127.0.0.1 - ID=1, Time=0, Size=0, Error=0, State=HELO
+2023-Apr-24 09:46:07 SpamHater - Process Time DHM=0:00:00, Min=0.00, Max=0.00, Avr=0.00
+2023-Apr-24 09:46:07 SpamHater - Running DHM=0:00:00, Min Size=0, Max Size=0, Daily BL=0
+2023-Apr-24 09:46:07 SpamHater - Total Messages=0, Black List=0 (0.00), White List=0 (0.00)
+2023-Apr-24 09:46:07 SpamHater - BL Type: IP=0 (0.00), Conn=0, Dom=0, HTML=0, DNSBL=0
+2023-Apr-24 09:46:07 SpamHater -     Domain =0 (0.00), Address=0, Suspect=0, Reverse=0
+2023-Apr-24 09:46:07 SpamHater -     Keyword=0 (0.00), Subject=0, Body=0
+2023-Apr-24 09:46:07 SpamHater -     Format =0 (0.00), Address=0, Body=0
+2023-Apr-24 09:46:07 SpamHater -     Tag    =0 (0.00), Header=0, Admin Command=0
+2023-Apr-24 09:46:07 SpamHater - Denied Connections=0, Messages Deleted=0, Outbreak Messages=0
+2023-Apr-24 09:46:07 SpamHater - Tracking Log Size=0, Outbreak Log Size=0, Threads=48/1
+2023-Apr-24 09:46:34 127.0.0.1 - blst
+2023-Apr-24 09:46:34 127.0.0.1 - 451 Connection not found
+2023-Apr-24 09:49:01 SpamHater - Process Time DHM=0:00:00, Min=0.00, Max=0.00, Avr=0.00
+2023-Apr-24 09:49:01 SpamHater - Running DHM=0:00:03, Min Size=0, Max Size=0, Daily BL=0
+2023-Apr-24 09:49:01 SpamHater - Total Messages=0, Black List=0 (0.00), White List=0 (0.00)
+2023-Apr-24 09:49:01 SpamHater - BL Type: IP=0 (0.00), Conn=0, Dom=0, HTML=0, DNSBL=0
+2023-Apr-24 09:49:01 SpamHater -     Domain =0 (0.00), Address=0, Suspect=0, Reverse=0
+2023-Apr-24 09:49:01 SpamHater -     Keyword=0 (0.00), Subject=0, Body=0
+2023-Apr-24 09:49:01 SpamHater -     Format =0 (0.00), Address=0, Body=0
+2023-Apr-24 09:49:01 SpamHater -     Tag    =0 (0.00), Header=0, Admin Command=0
+2023-Apr-24 09:49:01 SpamHater - Denied Connections=0, Messages Deleted=0, Outbreak Messages=0
+2023-Apr-24 09:49:01 SpamHater - Tracking Log Size=0, Outbreak Log Size=0, Threads=48/1
+2023-Apr-24 09:49:07 SMTP - Service not available
