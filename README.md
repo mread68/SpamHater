@@ -15,6 +15,7 @@ SpamHater is a Windows service application that was originally written in 2003 s
 * Known methods of decoding were used to reduce each e-mail down to basic ASCII characters for easy keyword searching.  Methods include MIME decoding, HTML character decoding, HTML HEX decoding, and annotated characters translated to ASCII equivalent.
 * SMTP commands must be issued in a specific order.  The current state of the connection is tracked, as to what command the connection is expecting next, and what stage the filtration engine is at in its processing of each message.
 * A count for each way the e-mails were black listed was maintained so administrators could track which methods were working best.  This could be seen with the STAT command from a telnet session:
+<pre>
     STAT
     ID=1, Time=0, Size=0, Error=0, State=HELO
     Process Time DHM=0:00:00, Min=0.00, Max=0.00, Avr=0.00
@@ -27,6 +28,7 @@ SpamHater is a Windows service application that was originally written in 2003 s
         Tag    =0 (0.00), Header=0, Admin Command=0
         Denied Connections=0, Messages Deleted=0, Outbreak Messages=0
     Tracking Log Size=0, Outbreak Log Size=0, Threads=48/1
+</pre>
 * SpamHater was always a work in progress.  There are bits of code (like code to connect to an SQL database) that were not used, or no longer in use, but the code is still there just in case.
 
 # Initialization:
