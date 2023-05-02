@@ -907,7 +907,6 @@
 21100 D1scount
 21000 discount ??%
 21000 Discount code DC
-21000 Discount for turbores
 21000 discount instantly
 21000 Discounted RX
 11100 Discover the secrets your government
@@ -1234,7 +1233,6 @@
 11100 for kids of all
 11100 for returning phone calls
 11100 for taking online survey
-11000 for turbores
 # 21000 For:quote
 # 21000 For:quotes
 21000 For:receiving
@@ -1476,7 +1474,6 @@
 11100 Government Property
 11100 Government Secured
 11100 Government Selling
-21000 Government Solicitations found for Turbo Resources International inventory
 21100 Graeberschaendung
 21100 GrandSlam Stock
 21100 Grand?Slam Stock
@@ -1593,7 +1590,6 @@
 11000 Hey it's important
 21010 hey over there!
 11000 hey sweet heart
-11100 hey Turbores
 11000 H?G?H 
 11000 H G H
 11000 HGH 
@@ -2725,7 +2721,6 @@
 11100 Par1s 
 21000 Paris Hilton
 21100 P@RiS HiLT0N
-21000 parcel for company Turbo
 11100 part time lovers
 11100 passes for xxx
 11100 passes for best xxx
@@ -3872,16 +3867,6 @@
 21100 Tuerkei in die EU
 11100 Tune up your computer
 11100 Tupperware Money Madness
-11000 turboexpendables.com? 
-21010 turboexpendables.com Delivery Notice
-21010 turbooverstock.com Delivery Notice
-11100 turbores,
-11100 turbores!
-11000 turbores? 
-11000 turboresources.com? 
-21010 turboresources.com Delivery Notice
-21000 turboresources.com employee list
-21000 turbosresources.com
 21100 Turkish Tabloid
 11100 Turnkey Automated System
 11100 turnkey home business
@@ -4289,7 +4274,6 @@
 11100 What if YOU could earn
 11000 What truly matters to you
 11000 what you are looking for
-11100 whats up Turbores
 11000 When can I call you
 11000 When can we meet
 11100 when it comes to debt
@@ -5172,8 +5156,6 @@
 # 21002 Requirements dated ??th 
 # 21002 ROI - Password Re
 # 21012 Scan Data
-# 21002 Scan de aviation4art
-# 21002 Scan de turboresources
 # 21012 Scan from a Xerox WorkCentre
 # 21012 scan p.?
 # 21012 Seen this picture?
@@ -5403,7 +5385,6 @@
 # 21002 courier can not deliver
 # 21002  SEO guote
 # 21002  SEO Quote
-# 21002  SEO for turbo
 # 21012 Postmaster
 # 21012 Package Delivery Notification
 # 21002 commercial invoice - customer 
@@ -5679,22 +5660,17 @@
 21010 Re-validate Your Mailbox
 21010 Validate your Mailbox
 21010 You have two (?) pending messages
-21000 @TurboResources.com Verify Your Email Account
 21000 Upgrade Your Mailbox to Avoid Pending Mails
-# 21012 Invoice(s) Bombardier AR 2019?????
-# 21012 Purchase Order 21085 from AVIATION LINK LLC URGENT
 # 21010 RE: Quotation Request
 # 21012 Proof of payment copy_Invoice no. O1-465
 # 21012 RE: Regarding Shipment
 # 21012 Shipment Details :BL/AWB DETAILS
-# 21012 Purchase Order 21107 from AVIATION LINK LLC
 #
 # White List
 # 01101 AOG 
 # 01011 AOG
 # 01001 AOG's
 # 01101 A.O.G. 
-00101 http://www.turboresources.com/privacy.asp
 # 01001 New Stock for Sale
 # 01001 Northwest Airlines
 # 01001 Online FedEx Tracking
