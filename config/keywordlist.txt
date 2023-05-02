@@ -10,14 +10,13 @@
 # Strings are not case sensitive, and spaces at the begining and end of the keywords will not be removed
 # ? allowed in the string to indicate any character in that position
 # The engine will be more efficient if white list items are on the bottom of the list
-# All ` and ë and í contained in the e-mail will be converted to ' so don't use them here
-# All ì and î will be converted to " so don't use them here
-# Finally all characters such as Â, ° and ˆ will be changed to their base equivalent character
+# All ` and ‚Äò and ‚Äô contained in the e-mail will be converted to ' so don't use them here
+# All ‚Äú and ‚Äù will be converted to " so don't use them here
+# Finally all characters such as √•, ¬° and √∂ will be changed to their base equivalent character
 #
 # 21000  koi8-r
 20100 charset="koi8-r"
 11100 $5 Money Machine
-21000 @TurboResources.com is expiring in ? days
 11000 % Cheaper
 21010 ??% ?FF
 21000 ??% ?FF on Pfizer
@@ -43,8 +42,6 @@
 21000 ;) Look 
 21000 :) Look 
 21000 /* * 
-11000 @turboexpendables.com
-# 11000 @turboresources.com
 21000 [Tousername]
 11100 <%LASTNAME%>
 11100 %CUSTOM_
@@ -2933,7 +2930,7 @@
 11100 prayer hotline
 21000 Preapproved
 21000 Pre-approved
-21000 pre ñ approved
+21000 pre ‚Äì approved
 # 21000 precious
 21000 Preferred seat purchase receipt
 11100 premium cable channel
@@ -4823,7 +4820,7 @@
 # 21002 eFax message from "
 # 21012 e-mail MMS
 # 21002 E-Mailed Invoices Invoice_
-# 21002 Envoi_d'un_message†:
+# 21002 Envoi_d'un_message¬†:
 # 21012 Envio su e-Factura
 # 21012 Error
 # 21002 - e-Online Data -
