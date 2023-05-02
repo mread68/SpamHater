@@ -1,0 +1,597 @@
+******************* SpamHater installation and instructions ********************
+
+SpamHater is an ESMTP proxy service that becomes your first line of defense
+against unwanted SMTP traffic.  It will overcome all the common tactics that
+spammers use to bypass other e-mail filters, including MIME encoding the
+message body, message fragmentation and character manipulation.  SpamHater
+becomes your primary SMTP server and it will forward messages to your regular
+e-mail server (a.k.a. SmartHost) if they pass the test.  File attachments are
+not scanned.
+
+SpamHater is an NT service.  Unzip the files on the computer where SpamHater
+will be running.  Open a command prompt, change to the directory where SpamHater
+is located and type "SMTPserv -i" then run the SMTPserv.reg file to install the
+configuration keys into the registry.  Go to your Services list and configure
+SpamHater (named SMTP Proxy) to start automatically.  It's also a good idea to
+set SpamHater to restart on a crash just in case a spammer sends an improperly
+formatted message.  Technically SpamHater should not crash for any reason
+however, better safe than sorry.
+
+SpamHater has some built in security features that will help prevent any
+denial-of-service and virus attacks.  First, it will only allow a maximum of two
+consecutive connections from any one IP address.  This prevents any one computer
+from monopolizing all the active connections available without excessively
+restricting legitimate e-mail servers with multiple messages to send.  Second,
+if a single connection is sending multiple messages then it must wait for the
+scanning process to complete in its entirety before sending another message.
+This prevents a single connection from consuming all the system processing time
+by sending lots of bogus messages.
+
+--------- For installation on the same computer as your e-mail server ----------
+Change the SMTP port that your e-mail server uses and change the SmartHostPort
+setting in the registry to match.
+
+------- For installation on a different computer than your e-mail server -------
+Change the MX record in your DNS setting to reference the computer where
+SpamHater is installed.  Wait a week to allow your DNS changes to be replicated
+across the Internet then set your e-mail server to deny SMTP connections from
+all but the SpamHater computer.  This is important because if you leave it open
+some spammers will continue to use it and bypass SpamHater altogether.
+
+------------------------------ Registry settings -------------------------------
+Most of the registry settings are self explanatory.  There is no fancy
+configuration utility because these settings will rarely change.  Ideally
+SpamHater should be configured with the same options that your regular e-mail
+server uses.  If you change any of the registry settings then you will need to
+restart SpamHater before they take affect. The settings are:
+
+UpdateLog:  1 = yes, 0 = no.  The log is very similar to Microsoft's Virtual
+            SMTP server log, but also includes filter events for better
+            monitoring of spam activity.
+
+DeleteLogDays:  Number of days to retain old log files.  0 = unlimited.
+
+SocketTimeout:  Number of seconds of inactivity before a client is disconnected.
+
+PortNumber:  The port number that SpamHater listens to for incoming traffic.
+
+MaxClients:  The maximum number of concurrent connections SpamHater will accept.
+             SpamHater will only accept two concurrent connections per IP
+             address to help prevent attacks.
+
+MaxMessageSize:  The maximum message size in bytes that SpamHater will accept.
+                 0 = unlimited, however setting a maximum size is a good way to
+                 help prevent attacks.  Messages larger than this will be
+                 truncated, the fragment that's received will be transmitted to
+                 the recipient, and a note is attached letting the recipient
+                 know it's a truncated message.
+
+MaxLinkSize:  The maximum length of an HTML link in the both of the message.  If
+              a link found within the message body it larger than this size then
+              most likely it's a randomly generated link by a spammer designed
+              to cause a buffer overflow.  Only the base address is examined and
+              not any additional parameters that may be passed to the web
+              server.  0 = unlimited size.  When this option is turn on then
+              HTML links will also be examined for other deceptive formatting
+              techniques, such as a ". ." within the link.  ForwardResolution
+              configuration option must be turn on for this option to function.
+
+MaxTrackingSize:  This is the maximum size, in records, that the tracking log
+                  and outbreak log will reach.  When this size has been reached
+                  then the oldest records with the lowest hit counts will be
+                  deleted as needed to add new items to the lists.  This value
+                  must be at least 1000.
+
+SmartHost:  The address of your e-mail server.
+
+SmartHostPort:  The SMTP port number of your e-mail server.
+
+ForwardingAddress:  If you want any messages forwarded to someone for further
+                    review, this is the address.
+
+AdminAddress:  The e-mail address of the system administrator or postmaster.
+               This is used on bounce back messages.
+
+RejectIfFromInvalid:  1 = yes, 0 = no.  Reject e-mails if the value of the
+                      "From:" key is blank or is an improperly formatted e-mail
+                      address.  This is only related to the From: address in the
+                      message itself and not the SMTP Mail From: command.
+
+AcceptBlankMailFrom:  1 = yes, 0 = no.  According to the SMTP specifications,
+                      servers are supposed to accept messages that contain a
+                      blank address in the SMTP Mail From: command.  This format
+                      is supposed to be used by servers to send non-delivery
+                      reports.  Spammers will exploit this hole to get their
+                      messages through.  There should be enough other details for
+                      SpamHater to check to identify spam.  However, if you don't
+                      mind missing a few non-delivery reports then turn this
+                      option off.
+
+AcceptBlankBody:  1 = yes, 0 = no.  This option is intended to reduce processing
+                  time.  If a message hasn't been white listed or black listed by
+                  the time SpamHater needs to scan the message body then it can
+                  be automatically black listed if the message has no body.
+
+ReverseResolution:  1 = yes, 0 = no.  This option is intended to reduce
+                    processing time.  If the message hasn't been white listed or
+                    black listed by the time SpamHater needs to scan the message
+                    body then the results of the reverse resolution will be
+                    checked against the domain filter and could be white or
+                    black listed based on the result.  Reverse resolution is
+                    also used for the Suspect Domain list so if this feature is
+                    disabled then Suspect Domains will not work.
+
+ForwardResolution:  1 = yes, 0 = no.  This option may increase processing time
+                    a little, but it is worth it.  This option will perform a
+                    forward lookup on all domains of all return addresses and
+                    each of their subdomains, if necessary, as well as all HTML
+                    links found in the message.  If any of the domains resolve
+                    to a black listed IP address then the item is blocked.  This
+                    option will not white list any message.  With this option a
+                    spammers can keep purchasing as many domain names as they
+                    like and reconfigure their DNS servers as many times as they
+                    like.  If the return address or any of the links they include
+                    in any of their spammed messages resolves to a black listed
+                    IP range then their messages can easily be blocked.
+
+RejectIfSameFromAndTo:  1 = yes, 0 = no.  Some spammers will use the recipients
+                        e-mail address, as specified in the Rcpt To: command, as
+                        the From address in the Mail From: command.  The spammer
+                        is betting that you have your own domains on your White
+                        list, which they should NOT be.  Instead you should have
+                        the IP addresses you own on your White List because an IP
+                        address is much more difficult to spoof.  This option
+                        will Black List any e-mail that has the same address used
+                        in both the Mail From: and Rcpt To: commands.  I've found
+                        at least one extremely poorly configured e-mail server
+                        that uses this technique for non-delivery reports.
+                        However, in general, this option should be left on.
+
+OutbreakCheck:  1 = yes, 0 = no.  This option will turn on a feature that will
+                automatically black list IP addresses based on outbreak recipient
+                addresses.  If any e-mail is delivered to a specified suspect
+                recipient (also known a Honey Pot Addresses) then all future
+                e-mail from that source will be black listed.  These automaticly
+                black listed IP addresses will appear in the tracking log for
+                review before they are manually put in the domain list file.  
+
+RejectTags:  Some spammers use special header tags to track their messages.  If
+             any e-mail contains any of the tags indicated here then it will be
+             considered spam.  Separate the tag names with semi-colons and don't
+             use any extra spaces.
+
+EncodingLimit:  This indicates the maximum allowed characters that can be encoded
+                within the e-mail message body.  Many spammers will try to
+                conceal their HTML links by encoding the characters with
+                %-encoding and/or &#-encoding methods.  This form of encoding is
+                completely unnecessary for alphanumeric characters.  If too many
+                alphanumeric characters have been encoded this way then the
+                message is black listed.  The only non-alphanumeric characters
+                included in this count are the period and both slashes.  Set this
+                option to zero to disable this check.
+
+FormatErrors:  This indicates what to do with e-mails that are Black listed with
+               the above two registry keys, the BLST command, and invalid From:
+               address, a blank message body or a suspect domain violation.
+               0 = send to TurfDir, 1 = forward to ForwardingAddress, 2 = delete.
+
+AlternateRouting:  1 = yes, 0 = no.  This enables or disables a custom routing
+                   method specific to Turbo Resources Int'l.
+
+TempFilePath:  This is the directory SpamHater will use for temporary work files.
+               This key MUST end with a backslash.  More information about this
+               directory is in the Maintenance section below.
+
+LogFilePath:  This is the directory where log files are stored.  This key MUST
+              end with a backslash.
+
+TurfDir:  This is the directory where filtered e-mail is stored for later review
+          or retrieval.  This key MUST end with a backslash.
+
+KeywordList:  This is the fully qualified directory path of your keyword filter
+              list.  More information about this file is below and inside the
+              file.
+
+DomainList:  This is the fully qualified directory path of your domain filter
+             list.  More information about this file is below and inside the
+             file.
+
+LocalDomains:  This is the fully qualified directory path of your local domain
+               list.  Local domains are used to deny spammers from using your
+               SMTP server as an open relay.  Only incoming traffic intended
+               for recipients in the domains indicated in this file, and
+               connections from your internal IP addresses indicated in this
+               file, will be allowed.  If there are no entries in this file then
+               SpamHater will accept all traffic and be an open relay.
+
+               I found that many Spammers will use your SMTP server and make it
+               appear as if you are sending them e-mail.  Their e-mail address
+               is bogus, of course, so it bounces back to you with a full copy
+               of the spam message.  When you open the bounce back report trying
+               to figure out what you could have possibly sent to them, you see
+               the spam.  Some viruses will also use this technique to conceal
+               their real location.  Making sure your SMTP server isn't an open
+               relay will prevent these problems.
+
+TrackingLogFile:  This is the fully qualified directory path of a text file that
+                  will be used to store IP address and domain tracking
+                  information from all messages that are not white listed and
+                  require a large amount of processing time.  This will help
+                  identify IP address ranges and domains of spammers.  If the
+                  file does not exist then SpamHater will create it.  If it does
+                  exist then SpamHater will load the data from it and continue
+                  to update the information.  The CTRK command will clear this
+                  log, and LTRK will reload this log, without the need to
+                  shutdown the server.
+
+DNSBLSource:  If you wish to query spam identification services that use a
+              standard DNSBL protocol then enter the domain addresses here.
+              Separate the domain names with semi-colons and don't use any extra
+              spaces.
+
+DNSBLResults:  This indicates how the results from the above sources should be
+               processed by stringing together Y's and N's indicating yes or no
+               if the result should black list the message.  For example, if you
+               enter NNYN then it means if the matching DNSBL source above
+               returns 127.0.0.3 then the message should be black listed.  You
+               need a different result set for each of the sources listed in the
+               above registry key.  Separate the result sets with semi-colons and
+               don't use any extra spaces.
+
+DNSBLAction:  This indicates what to do with e-mails that are Black listed with
+              the above two registry keys.  0 = send to TurfDir, 1 = forward to
+              ForwardingAddress, 2 = delete.
+
+----------------------------- Configuration files ------------------------------
+All three configuration files (above) are text files in a simple format.  If you
+change a configuration file SpamHater will automatically detect the change and
+reload the file.  Each configuration file contains more details about its
+format.
+
+You have the option to classify messages into three categories.  If a message is
+found to have more that one classification then it's processed according to the
+priority of its highest classification.  Black Listed items take the lowest
+priority.  Permanent Black Listed items take the highest priority.  For example,
+if a message if found to be on the White List then it will be processed as a
+White Listed message unless it's also found to be on the Permanent Black List.
+The Permanent Black List classification is a way for you to filter messages such
+as viruses even if they come from a trusted source.
+
+You also have the option to define Suspected Domains.  If and e-mail arrives
+with a return address from a Suspected Domain then the sending IP address must
+reverse resolve to any Suspected Domain or it will be black listed. For example,
+IP addresses from MSN mail server typically resolve to hotmail.com.  If both
+@hotmail.com and @msn.com are on the Suspected Domain list then if an e-mail
+come in with an msn.com address the reverse resolution of the IP address must
+match either msn.com or hotmail.com or it will be black listed.  This system
+stops spam from commonly spoofed domains while allowing legitimate mail servers
+to handle multiple domains.
+
+You may also indicate Outbreak Recipients in the Domain Configuration file.
+These addresses are also known as "Honey Pot Addresses".  Basically all messages
+being sent to non-existent or no longer existing e-mail addresses are coming
+from suspect sources.  These source IP addresses can be automatically black
+listed to stop any more messages coming from that location.  These blocked IP's
+are only temporarily stored in the outbreak list, but will be saved in the
+Tracking Log for further review.
+
+You may indicate White List Recipients.  These are recipients that will always
+receive all e-mail, no matter how else the message is classified.  The message
+is processed as normal, saved in the TurfDir etc.  However, if any of the
+recipients are White List Recipients then a copy of the message will be
+forwarded too.
+
+You may indicate Disregarded Domains.  These are domains or IP addresses which
+will not be added to the tracking log or outbreak filter, but are otherwise
+ignored everywhere else.  For example, many messages formatting in HTML indicate
+formatting rules may include a link to a W3C validation site.  You would not
+want to white list or black list these sites, but ignore them so the message may
+be rejected or approved by other markers.  You also would not want these sites
+to be recorded in your tracking log producing unwanted clutter.
+
+The LocalDomains file is already explained above.  The KeywordList file contains
+key words and phrases that indicate spam, like "Free Visa".  The DomainList
+contains domains of known spammers and keywords to look for in a return address
+that may indicate a spammer, like "offers".  Both the KeywordList and DomainList
+accept wildcards to stop spammers that use hundreds of sub-domains in their
+return addresses, and various letter substitutions and misspellings in their
+messages.  All message header keys that may indicate a return address are
+scanned, such as "Reply-To:" and "Errors-to:"
+
+There will never be a need to add keywords with more than one space between
+words or letters.  All message fragmentation, including line breaks and extra
+spaces, are removed from the message before the first keyword scan takes place.
+Then all the HTML tags are removed, "&nbsp;"s are converted to spaces, and extra
+spaces are removed again before the second keyword scan takes place.  This 
+prevents spammers from using HTML comments to fragment the message.  MIME 
+decoding is also done on text sections of the messages, because this is another
+common trick spammers use to bypass filters.  File attachments are not scanned.
+All messages are forwarded to your regular e-mail server in their original
+format.  SpamHater will not change the message in any way, other than to attach
+a note if it's truncated due to a size limit.  Delivery Status Notifications are
+also sent to mail senders if SpamHater fails to forward the message to the
+SmartHost.
+
+------------------------------ New SMTP commands -------------------------------
+You may notice a few new SMTP commands are available for administrators.  Here
+is a quick overview of what they are:
+
+STAT - This command is available from any connection.  It will give you an
+       overview of processing times and Black/White list counts since the
+       service was started.  It will give you a good idea about how efficiently
+       your server and configuration files are working.
+
+CSTA - This command is only available from an IP defined in the local domain
+       list.  This command will reset all the statistical information displayed
+       with the previous command.
+
+KILL - This command is only available from an IP defined in the local domain
+       list.  The parameter required for this command is the Connection ID.
+       It will allow an administrator to force a connection to stop receiving
+       data and immediately go to the processing stage.  If the connection has
+       received any message data then an attachment will be added showing that
+       the message is incomplete.  If no message data has been received then
+       the connection is simply terminated.
+
+EXIT - Same as QUIT command.
+
+WLST - This command is only available from an IP defined in the local domain
+       list.  The parameter required for this command is the Connection ID.
+       It will allow an administrator to place the message associated with the
+       connection on the White List.  If a message is exceptionally large and
+       the processing stage is taking a long time, this is a good way to force
+       the processing stage to end and deliver the message to its destination.
+
+BLST - This command is only available from an IP defined in the local domain
+       list.  The parameter required for this command is the Connection ID.
+       It will allow an administrator to place the message associated with the
+       connection on the Black List.  If a message is exceptionally large and
+       the processing stage is taking a long time, this is a good way to force
+       the processing stage to end and deliver the message to its destination.
+
+CTRK - This command is only available from an IP defined in the local domain
+       list.  This command will clear all data in the Tracking log without the
+       need to shutdown the server..
+
+LTRK - This command is only available from an IP defined in the local domain
+       list.  This command will reload the Tracking log, if you make changes,
+       without the need to shutdown the server.
+
+STRK - This command is only available from an IP defined in the local domain
+       list.  This command will save the Tracking log to a text file.
+
+COBK - This command clears the outbreak list that contains IP addresses that
+       have been automatically black listed based on outbreak recipients.
+
+LCFG - This command will reload the server configuration values from the
+       registry.  Some settings may still require the service to be restarted
+       before they take affect.
+
+HOLD - This command is only available from an IP defined in the local domain
+       and will temporarily block all new connections except those from the
+       local domain.  Issue this command a second time and new connections
+       will be accepted again.  If an administrator needs to stop the service
+       for any reason while a large amount of activity is occurring then this
+       command will allow existing connections to finish processing while
+       blocking new connections creating a break for the service to be stopped.
+
+-------------------------- Maintenance and operation ---------------------------
+Keeping up with spammers that attempt to bypass filters is important.  If you
+belong to a specific industry then this process is easier because you can add
+more things to your Black list.  For example, if you work in the restaurant
+industry then you probably won't be getting any legitimate e-mail from car
+dealers.  You can safely add domain names of car dealers and the industry
+specific terms they use to your Black lists.  White lists are also used by
+SpamHater.  Any e-mails found on a White list are automatically forwarded to the
+intended recipient no matter how many Black list items it contains.  Be careful
+with your White lists because spammers regularly use bogus return addresses
+using major domains, like Yahoo.com and MSN.com, hoping to hit a White list
+entry.
+
+SpamHater can be setup to work any way you like but let me explain how I use it
+to give you an idea about how I keep up with spammers.  First, I don't like to
+delete anything.  The only items that get deleted are viruses that can be easily
+identified by a specific subject line, such as "RE: Movie".  I can specify that
+this keyword must be an exact match of only the subject line before it's
+deleted.  Most of the filtered e-mail is set to the TurfDir.  I can scan these
+files periodically and see if any legitimate mail is being filtered and retrieve
+it.  It also gives me an idea about just how hard SpamHater is working for me.
+All items set to the TurfDir include an extra text section at the top of the
+file indicating who sent it and specifically what filter was used to block it.
+With that information I can adjust my filter list to allow future e-mails from
+that sender.
+
+If I'm not sure about a filter I can always set it to forward the message to an
+alternate address for further review.  For example, if someone uses "V1agra" or
+"\/iagr4" then they are spammers trying to bypass spam filters.  However, if
+someone uses "Viagra" then there is a chance it could be a legitimate e-mail.
+That word could be used in a joke that's being forwarded around.
+
+I also keep the logging turn on, although it's not required, because it's a
+great help when troubleshooting problems.  The log will also indicate which
+e-mails were sent because they were found on a White list, incase I wonder why
+a certain e-mail got passed the filters.  Finally, you should check the
+temporary directory periodically.  If SpamHater ever fails to forward a message
+to the SmartHost, or to the TurfDir, then the temporary file will remain.  This
+prevents the loss of messages due to problems.
+
+------------------------------ Summing it all up -------------------------------
+Now that you have an idea about the basic operation and configuration let me
+piece it all together.  The first thing to know is that there are two phases of
+scanning.  Phase 1 includes all the quick and easy checks that should only take
+a split second to perform.  Phase 2 includes the more time consuming processes
+such as scanning the message body.  This is also when you'll see a percent
+complete indicated when viewing the results of the STAT command.  Phase 1 will
+only stop before completion if the message is found to be on the permanent black
+list.  This gives every message a chance to be white listed or permanently black
+listed.  A vast majority of messages should be white or black listed in this
+phase.  During Phase 2 the scanning could stop at any time the message is found
+to be on the white or black lists in order to reduce the processing time.  If
+the configurations files are setup properly only a small percentage of the
+messages should get passed both Phase 1 and Phase 2 without being identified.
+
+Please note that only text and HTML sections of the message are scanned.  File
+attachments are ignored.  Also know that some spammers are marking messages as
+written with alternate character sets.  This may give the appearance that the
+whole message body is a file attachment when in fact SpamHater will identify it
+as a text section and scan it anyway.  Also note that all the processes in
+SpamHater are internal and will not modify the original message in any way.
+Everything that SpamHater does and why can be logged and recorded for easy
+management.  Knowing all this, these are the actions SpamHater takes given the
+standard configuration setup:
+
+*** Start ***
+ 1.  The connection is made from the client
+ 2.  The connecting IP address is checked against the IP ranges in the Domain
+     Configuration file.  If the connection should be denied or if that same
+     IP address is already connected more than one other time then it's
+     immediately dropped.
+ 3.  All the SMTP commands that follow are recorded.  Basic e-mail address
+     format validation checks are performed on all MAIL FROM: and RCPT TO:
+     commands.
+ 4.  All RCPT TO: addresses are verified to be in the local Domain Configuration
+     file.  If not, the connecting IP address must be in the local domain.  This
+     prevents SpamHater from relaying messages.
+ 5.  The entire message is received and saved in the Temporary directory as
+     indicated by the TempFilePath configuration option.
+ 6.  If the connection times out and the message is incomplete then a note
+     indicating it's incomplete is placed in the message body or as a text file
+     attachment.
+ 7.  The client is notified of either the message being queued or a connection
+     timeout condition.
+
+*** Phase 1 ***
+ 8.  The connecting IP address is checked against all the IP ranges in the
+     Domain Configuration file and the message is white or black listed as
+     necessary.  This is logged as step "1".
+ 9.  The connecting IP address is checked against the outbreak list of IP's that
+     have been automatically black listed base on a outbreak recipient address.
+     If the item has not been white listed or black listed by this point then
+     the recipient addresses are checked against the outbreak recipients in the
+     Domain Configuration file.  If any of the recipients are suspect then the
+     IP address is automatically added to the outbreak list and the message is
+     black listed.  The OutbreakCheck option must be turned on for this step to
+     execute.  This is logged as step "+".
+10.  The e-mail address in the MAIL FROM: command is checked against the Domain
+     Configuration file.  This is logged as step "2".
+11.  The saved e-mail message is opened and parsed.  If the message is white
+     listed by IP address then this step is only used to extract the subject
+     line.  Actions 11-17 are logged as step "3".
+12.  Any message header elements that may indicate a sending or return e-mail
+     address are checked against the Domain Configuration file.  These include
+     Message-ID:, Reply-To:, Unsubscribe:, etc.
+13.  If the message header contains any of the tags indicated by the RejectTags
+     configuration option, or if the same address is used in both the MAIL FROM:
+     and RCPT TO: commands then the message is black listed.  The
+     RejectIfSameFromAndTo configuration option also relates to this step.
+14.  All address domains, found in the previous step or in the MAIL FROM:
+     command, are resolved to IP addresses and checked against black listed IP
+     ranges.  Messages will not be white listed on this step.  The
+     ForwardResolution configuration option must be turned on for this step to
+     take place.
+15.  The e-mail address indicated with the From: element is verified to exist
+     and validated with basic format checks.  Messages with invalid or
+     non-existent From: elements are black listed.  The RejectIfFromInvalid and
+     AcceptBlankMailFrom configuration options relate to this step.
+16.  If the message body is MIME encoded in Base16, Base32 or Base64 then it's
+     decoded.  Multiple text and HTML sections are decoded and merged as
+     necessary.  Carriage Return and Line Feed characters are removed and
+     converted to spaces.
+17.  The subject line is decoded, if necessary, and all non-standard ASCII
+     characters such as Å, Ä and Ã are converted to their standard ASCII
+     equivalent.  All non-visible characters such as tabs and NULLs are
+     converted to spaces.
+18.  The subject line is checked against the Keyword Configuration file.  This
+     is logged as step "4".
+19.  Any extra spaces are removed from the subject line and it's checked against
+     the Keyword Configuration file again.  This is logged as step "5".
+20.  If the message isn't already black listed or white listed by IP address then
+     a reverse resolution is done with the connecting IP address and the result
+     is checked against the Domain Configuration file.  Messages will not be
+     white listed on this step.  The ReverseResolution configuration option must
+     be turned on for this step to take place.  Actions 20-21 are logged as step
+     "6".
+21.  If any of the address domains, found in the message header or in the MAIL
+     FROM: command, are found to be on the suspect domain list then a reverse
+     resolution is done on the sending IP address.  If the result does not also
+     resolve to a suspect domain then the message is black listed.  This helps
+     prevent spammers from spoofing common return address domains such as
+     yahoo.com and hotmail.com.  The ReverseResolution configuration option must
+     be turned on for this step to take place.
+
+*** Phase 2 ***
+22.  The connecting IP address is checked against any DNSBL services that are
+     configured.  Messages will not be white listed on this step.  The
+     DNSBLSource, DNSBLResults and DNSBLAction configuration options relate
+     to this step.  This is logged as step "7".
+23.  If the message body is blank and there are no attachments then the message
+     is black listed.  The AcceptBlankBody configuration option must be turned
+     off for this step to take place.  This is logged as step "8".
+24.  HTML notation in the message body such as "%09", "&#%03d;" and "&yacute;"
+     are converted to ASCII characters.  If the number of alphanumeric characters
+     converted exceeds the EncodingLimit value then the message is black listed.
+     Messages will be taken off the white list if this format is found.  The
+     EncodingLimit value must also be greater than zero.  Actions 24-26 are
+     logged as step "9".
+25.  All non-standard ASCII characters in the message body such as Å, Ä and Ã
+     are converted to their standard ASCII equivalent.  All non-visible
+     characters such as tabs and NULLs are converted to spaces.
+26.  The message body is checked against the Keyword Configuration file.  At
+     this step the percent complete indicated by the STAT command will be
+     between 0% and 50%.
+27.  All HTTP links in the message body are extracted, revolved to IP addresses
+     and checked against black listed IP ranges.  Also if any of the links found
+     exceed the specified MaxLinkSize or are found to contain deceptive
+     formatting then the message will be black listed.  Messages will not be
+     white listed on this step.  Deceptive link formatting will remove messages
+     from the white list.  This helps prevent spammers concealing their identity
+     by registering hundreds of random domain names, using hacked slave computers
+     and spoofing return addresses to get passed spam filters.  The
+     ForwardResolution configuration option must be turn on for this step to take
+     place.  Actions 27-29 are logged as step "A".
+28.  All HTML tags and extra spaces are removed from the message body.  This
+     helps defeat common tricks to fragment messages by adding invisible code.
+29.  The message body is checked one last time against the Keyword Configuration
+     file.  At this step the percent complete indicated by the STAT command will
+     be between 50% and 100%.
+
+*** Finish ***
+30.  If step 26 was skipped due to the message being white listed based on a
+     keyword or e-mail address then this step is taken just in case something
+     was stoofed to get by spam filters.  All HTTP links in the message body are
+     extracted, revolved to IP addresses and checked against black listed IP
+     ranges.  Also if any of the links found exceed the specified MaxLinkSize
+     or are found to contain deceptive formatting then the message will be black
+     listed.  Messages will not be white listed on this step.  Deceptive link
+     formatting will remove messages from the white list.  The ForwardResolution
+     configuration option must be turn on for this step to take place.  This is
+     logged as step "B".
+31.  If the message is both black listed and white listed then it's assumed to
+     be white listed only.
+32.  If the message is still black listed then it's either copied to a Turf
+     Directory as indicated by the TurfDir configuration option, delivered to a
+     spam mailbox as indicated by the ForwardingAddress configuration option, or
+     deleted as indicated by the filter option which identified the message.
+33.  If the message is white listed, or neither white listed or black listed,
+     then it's forwarded to the Smart Host as indicated by the SmartHost and
+     SmartHostPort configuration options.  Additional information about the scan
+     results is added to the message header.
+34.  If the Smart Host rejects the message during delivery then a non-delivery
+     report is generated and sent to the address indicated with the MAIL FROM:
+     command.  The AdminAddress configuration option is used as the return
+     address on non-delivery reports.
+35.  If the message is confirmed to be forwarded to the Smart Host, or if the
+     non-delivery report is confirmed to be sent, then the message is deleted
+     from the Temporary directory.  Otherwise, the message will remain in the
+     Temporary directory for an administrator to view it and determine its fate.
+     Typically only partially received viruses will remain.
+36.  At this point if the client has not disconnected or timed out then it may
+     begin sending more SMTP commands and more messages.  It must wait as each
+     message it sends is processed to help prevent a denial-of-service attack.
+
+As long as the configuration files are kept up-to-date to block the latest spam
+onslaughts then there isn't much spammers can do to get passed SpamHater short
+of continually buying new domain names and IP ranges, finding new ways to
+slaughter the spelling in their messages, and doing everything they can to
+conceal their identities.  SpamHater can't stop them all but it can at least
+keep your e-mail more manageable.

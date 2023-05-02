@@ -1,0 +1,187 @@
+2009-Mar-12 10:06:21 SMTP Proxy Creating 16 worker threads
+2009-Mar-12 10:06:21 SMTP Proxy Loading Local domain list
+2009-Mar-12 10:06:21 SMTP Proxy Loading Domain filter list
+2009-Mar-12 10:06:22 SMTP Proxy Added 600 127.0.0.1 255.255.255.0
+2009-Mar-12 10:06:22 SMTP Proxy Added 600 128.30.52.24 255.255.255.0
+2009-Mar-12 10:06:22 SMTP Proxy Added 600 128.32.18.248 255.255.255.0
+2009-Mar-12 10:06:22 SMTP Proxy Loading Keyword filter list
+2009-Mar-12 10:06:22 SMTP Proxy Loading tracking log
+2009-Mar-12 10:06:22 SMTP Proxy Service is running
+2009-Mar-12 10:06:35 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:35 SpamHater - Process Time DHM=0:00:00, Min=0.00, Max=0.00, Avr=0.00
+2009-Mar-12 10:06:35 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:35 SpamHater - Running DHM=0:00:00, Min Size=0, Max Size=0
+2009-Mar-12 10:06:35 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:35 SpamHater - Total Messages=0, Black List=0 (0.00), White List=0 (0.00)
+2009-Mar-12 10:06:35 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:35 SpamHater - BL Type: IP=0 (0.00), Conn=0, Dom=0, HTML=0, DNSBL=0
+2009-Mar-12 10:06:35 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:35 SpamHater -     Domain =0 (0.00), Address=0, Suspect=0, Reverse=0
+2009-Mar-12 10:06:35 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:35 SpamHater -     Keyword=0 (0.00), Subject=0, Body=0
+2009-Mar-12 10:06:35 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:35 SpamHater -     Format =0 (0.00), Address=0, Body=0
+2009-Mar-12 10:06:35 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:35 SpamHater -     Tag    =0 (0.00), Header=0, Admin Command=0
+2009-Mar-12 10:06:35 SpamHater - Denied Connections=0, Messages Deleted=0, Outbreak Messages=0
+2009-Mar-12 10:06:35 SpamHater - Tracking Log Size=521, Outbreak Log Size=0, Threads=16/0
+2009-Mar-12 10:06:36 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:36 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:36 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:36 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:36 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:36 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:36 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:36 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:06:36 SMTP Proxy Saving tracking log
+2009-Mar-12 10:06:36 SMTP - Service not available
+2009-Mar-12 10:07:33 SMTP Proxy Creating 16 worker threads
+2009-Mar-12 10:07:33 SMTP Proxy Loading Local domain list
+2009-Mar-12 10:07:33 SMTP Proxy Loading Domain filter list
+2009-Mar-12 10:07:33 SMTP Proxy Added 600 127.0.0.1 255.255.255.0
+2009-Mar-12 10:07:33 SMTP Proxy Added 600 128.30.52.24 255.255.255.0
+2009-Mar-12 10:07:33 SMTP Proxy Added 600 128.32.18.248 255.255.255.0
+2009-Mar-12 10:07:33 SMTP Proxy Loading Keyword filter list
+2009-Mar-12 10:07:33 SMTP Proxy Loading tracking log
+2009-Mar-12 10:07:33 SMTP Proxy Service is running
+2009-Mar-12 10:07:37 127.0.0.1 - STAT
+2009-Mar-12 10:07:37 127.0.0.1 - ID=1, Time=0, Size=0, Error=0, State=HELO
+2009-Mar-12 10:07:37 SpamHater - Process Time DHM=0:00:00, Min=0.00, Max=0.00, Avr=0.00
+2009-Mar-12 10:07:37 SpamHater - Running DHM=0:00:00, Min Size=0, Max Size=0
+2009-Mar-12 10:07:37 SpamHater - Total Messages=0, Black List=0 (0.00), White List=0 (0.00)
+2009-Mar-12 10:07:37 SpamHater - BL Type: IP=0 (0.00), Conn=0, Dom=0, HTML=0, DNSBL=0
+2009-Mar-12 10:07:37 SpamHater -     Domain =0 (0.00), Address=0, Suspect=0, Reverse=0
+2009-Mar-12 10:07:37 SpamHater -     Keyword=0 (0.00), Subject=0, Body=0
+2009-Mar-12 10:07:37 SpamHater -     Format =0 (0.00), Address=0, Body=0
+2009-Mar-12 10:07:37 SpamHater -     Tag    =0 (0.00), Header=0, Admin Command=0
+2009-Mar-12 10:07:37 SpamHater - Denied Connections=0, Messages Deleted=0, Outbreak Messages=0
+2009-Mar-12 10:07:37 SpamHater - Tracking Log Size=521, Outbreak Log Size=0, Threads=16/1
+2009-Mar-12 10:07:38 127.0.0.1 - QUIT
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SpamHater - Process Time DHM=0:00:00, Min=0.00, Max=0.00, Avr=0.00
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SpamHater - Running DHM=0:00:00, Min Size=0, Max Size=0
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SpamHater - Total Messages=0, Black List=0 (0.00), White List=0 (0.00)
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SpamHater - BL Type: IP=0 (0.00), Conn=0, Dom=0, HTML=0, DNSBL=0
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SpamHater -     Domain =0 (0.00), Address=0, Suspect=0, Reverse=0
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SpamHater -     Keyword=0 (0.00), Subject=0, Body=0
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SpamHater -     Format =0 (0.00), Address=0, Body=0
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SpamHater -     Tag    =0 (0.00), Header=0, Admin Command=0
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SpamHater - Denied Connections=0, Messages Deleted=0, Outbreak Messages=0
+2009-Mar-12 10:07:41 SpamHater - Tracking Log Size=521, Outbreak Log Size=0, Threads=16/1
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:07:41 SMTP Proxy Saving tracking log
+2009-Mar-12 10:07:43 SMTP - Service not available
+2009-Mar-12 10:10:42 SMTP Proxy Creating 16 worker threads
+2009-Mar-12 10:10:42 SMTP Proxy Loading Local domain list
+2009-Mar-12 10:10:42 SMTP Proxy Loading Domain filter list
+2009-Mar-12 10:10:42 SMTP Proxy Added 600 127.0.0.1 255.255.255.0
+2009-Mar-12 10:10:42 SMTP Proxy Added 600 128.30.52.24 255.255.255.0
+2009-Mar-12 10:10:42 SMTP Proxy Added 600 128.32.18.248 255.255.255.0
+2009-Mar-12 10:10:42 SMTP Proxy Loading Keyword filter list
+2009-Mar-12 10:10:42 SMTP Proxy Loading tracking log
+2009-Mar-12 10:10:42 SMTP Proxy Service is running
+2009-Mar-12 10:10:45 127.0.0.1 - STAT
+2009-Mar-12 10:10:45 127.0.0.1 - ID=1, Time=0, Size=0, Error=0, State=HELO
+2009-Mar-12 10:10:45 SpamHater - Process Time DHM=0:00:00, Min=0.00, Max=0.00, Avr=0.00
+2009-Mar-12 10:10:45 SpamHater - Running DHM=0:00:00, Min Size=0, Max Size=0
+2009-Mar-12 10:10:45 SpamHater - Total Messages=0, Black List=0 (0.00), White List=0 (0.00)
+2009-Mar-12 10:10:45 SpamHater - BL Type: IP=0 (0.00), Conn=0, Dom=0, HTML=0, DNSBL=0
+2009-Mar-12 10:10:45 SpamHater -     Domain =0 (0.00), Address=0, Suspect=0, Reverse=0
+2009-Mar-12 10:10:45 SpamHater -     Keyword=0 (0.00), Subject=0, Body=0
+2009-Mar-12 10:10:45 SpamHater -     Format =0 (0.00), Address=0, Body=0
+2009-Mar-12 10:10:45 SpamHater -     Tag    =0 (0.00), Header=0, Admin Command=0
+2009-Mar-12 10:10:45 SpamHater - Denied Connections=0, Messages Deleted=0, Outbreak Messages=0
+2009-Mar-12 10:10:45 SpamHater - Tracking Log Size=521, Outbreak Log Size=0, Threads=16/1
+2009-Mar-12 10:10:46 127.0.0.1 - QUIT
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SpamHater - Process Time DHM=0:00:00, Min=0.00, Max=0.00, Avr=0.00
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SpamHater - Running DHM=0:00:00, Min Size=0, Max Size=0
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SpamHater - Total Messages=0, Black List=0 (0.00), White List=0 (0.00)
+2009-Mar-12 10:10:50 SpamHater - BL Type: IP=0 (0.00), Conn=0, Dom=0, HTML=0, DNSBL=0
+2009-Mar-12 10:10:50 SpamHater -     Domain =0 (0.00), Address=0, Suspect=0, Reverse=0
+2009-Mar-12 10:10:50 SpamHater -     Keyword=0 (0.00), Subject=0, Body=0
+2009-Mar-12 10:10:50 SpamHater -     Format =0 (0.00), Address=0, Body=0
+2009-Mar-12 10:10:50 SpamHater -     Tag    =0 (0.00), Header=0, Admin Command=0
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SpamHater - Denied Connections=0, Messages Deleted=0, Outbreak Messages=0
+2009-Mar-12 10:10:50 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:10:50 SpamHater - Tracking Log Size=521, Outbreak Log Size=0, Threads=16/1
+2009-Mar-12 10:10:50 SMTP Proxy Saving tracking log
+2009-Mar-12 10:10:51 SMTP - Service not available
+2009-Mar-12 10:12:58 SMTP Proxy Creating 16 worker threads
+2009-Mar-12 10:12:58 SMTP Proxy Loading Local domain list
+2009-Mar-12 10:12:58 SMTP Proxy Loading Domain filter list
+2009-Mar-12 10:12:58 SMTP Proxy Added 600 127.0.0.1 255.255.255.0
+2009-Mar-12 10:12:58 SMTP Proxy Added 600 128.30.52.24 255.255.255.0
+2009-Mar-12 10:12:58 SMTP Proxy Added 600 128.32.18.248 255.255.255.0
+2009-Mar-12 10:12:58 SMTP Proxy Loading Keyword filter list
+2009-Mar-12 10:12:58 SMTP Proxy Loading tracking log
+2009-Mar-12 10:12:58 SMTP Proxy Service is running
+2009-Mar-12 10:13:01 127.0.0.1 - STAT
+2009-Mar-12 10:13:01 127.0.0.1 - ID=1, Time=0, Size=0, Error=0, State=HELO
+2009-Mar-12 10:13:01 SpamHater - Process Time DHM=0:00:00, Min=0.00, Max=0.00, Avr=0.00
+2009-Mar-12 10:13:01 SpamHater - Running DHM=0:00:00, Min Size=0, Max Size=0
+2009-Mar-12 10:13:01 SpamHater - Total Messages=0, Black List=0 (0.00), White List=0 (0.00)
+2009-Mar-12 10:13:01 SpamHater - BL Type: IP=0 (0.00), Conn=0, Dom=0, HTML=0, DNSBL=0
+2009-Mar-12 10:13:01 SpamHater -     Domain =0 (0.00), Address=0, Suspect=0, Reverse=0
+2009-Mar-12 10:13:01 SpamHater -     Keyword=0 (0.00), Subject=0, Body=0
+2009-Mar-12 10:13:01 SpamHater -     Format =0 (0.00), Address=0, Body=0
+2009-Mar-12 10:13:01 SpamHater -     Tag    =0 (0.00), Header=0, Admin Command=0
+2009-Mar-12 10:13:01 SpamHater - Denied Connections=0, Messages Deleted=0, Outbreak Messages=0
+2009-Mar-12 10:13:01 SpamHater - Tracking Log Size=521, Outbreak Log Size=0, Threads=16/1
+2009-Mar-12 10:13:02 127.0.0.1 - QUIT
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SpamHater - Process Time DHM=0:00:00, Min=0.00, Max=0.00, Avr=0.00
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SpamHater - Running DHM=0:00:00, Min Size=0, Max Size=0
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SpamHater - Total Messages=0, Black List=0 (0.00), White List=0 (0.00)
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SpamHater - BL Type: IP=0 (0.00), Conn=0, Dom=0, HTML=0, DNSBL=0
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SpamHater -     Domain =0 (0.00), Address=0, Suspect=0, Reverse=0
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SpamHater -     Keyword=0 (0.00), Subject=0, Body=0
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SpamHater -     Format =0 (0.00), Address=0, Body=0
+2009-Mar-12 10:13:22 SMTP Proxy GetQueuedCompletionStatus() failed
+2009-Mar-12 10:13:22 SpamHater -     Tag    =0 (0.00), Header=0, Admin Command=0
+2009-Mar-12 10:13:22 SpamHater - Denied Connections=0, Messages Deleted=0, Outbreak Messages=0
+2009-Mar-12 10:13:22 SpamHater - Tracking Log Size=521, Outbreak Log Size=0, Threads=16/1
+2009-Mar-12 10:13:22 SMTP Proxy Saving tracking log
+2009-Mar-12 10:13:23 SMTP - Service not available
